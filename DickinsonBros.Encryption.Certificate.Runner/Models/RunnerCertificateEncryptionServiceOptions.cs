@@ -2,7 +2,7 @@
 
 namespace DickinsonBros.Encryption.Certificate.Runner.Models
 {
-    public class RunnerCertificateEncryptionOptions : CertificateEncryptionOptions
+    public class RunnerCertificateEncryptionServiceOptions : CertificateEncryptionServiceOptions
     {
     }
 }

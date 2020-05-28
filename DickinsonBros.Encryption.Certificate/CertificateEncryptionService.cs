@@ -10,12 +10,12 @@ using System.Text;
 namespace DickinsonBros.Encryption.Certificate
 {
     [ExcludeFromCodeCoverage]
-    public class CertificateEncryption<T> : ICertificateEncryption<T>
+    public class CertificateEncryptionService<T> : ICertificateEncryptionService<T>
     {
         internal readonly string _thumbPrint;
         internal readonly StoreLocation _storeLocation;
 
-        public CertificateEncryption(IOptions<CertificateEncryptionOptions<T>> certificateEncryptionOptions)
+        public CertificateEncryptionService(IOptions<CertificateEncryptionServiceOptions<T>> certificateEncryptionOptions)
         {
             _thumbPrint = certificateEncryptionOptions.Value.ThumbPrint;
             _storeLocation = certificateEncryptionOptions.Value.StoreLocation == "LocalMachine"
