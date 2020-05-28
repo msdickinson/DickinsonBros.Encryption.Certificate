@@ -1,4 +1,5 @@
-﻿using DickinsonBros.Encryption.Certificate.Extensions;
+﻿using DickinsonBros.Encryption.Certificate.Abstractions;
+using DickinsonBros.Encryption.Certificate.Extensions;
 using DickinsonBros.Encryption.Certificate.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
