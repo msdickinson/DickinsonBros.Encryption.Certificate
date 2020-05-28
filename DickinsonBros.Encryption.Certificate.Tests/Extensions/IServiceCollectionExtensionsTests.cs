@@ -19,7 +19,7 @@ namespace DickinsonBros.Encryption.Certificate.Tests.Extensions
             var serviceCollection = new ServiceCollection();
 
             // Act
-            serviceCollection.AddCertificateEncryption<SampleCertificateEncryptionOptions>();
+            serviceCollection.AddCertificateEncryptionService<SampleCertificateEncryptionOptions>();
 
             // Assert
 
