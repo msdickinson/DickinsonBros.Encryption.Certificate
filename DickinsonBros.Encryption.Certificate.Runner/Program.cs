@@ -70,7 +70,7 @@ Decrypted String
                 }
             });
             services.AddSingleton<IApplicationLifetime>(applicationLifetime);
-            services.AddCertificateEncryption<RunnerCertificateEncryptionServiceOptions>();
+            services.AddCertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>();
             services.Configure<CertificateEncryptionServiceOptions<RunnerCertificateEncryptionServiceOptions>>(_configuration.GetSection(nameof(RunnerCertificateEncryptionServiceOptions)));
         }
 

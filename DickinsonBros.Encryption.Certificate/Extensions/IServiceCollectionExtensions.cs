@@ -6,7 +6,7 @@ namespace DickinsonBros.Encryption.Certificate.Extensions
 {
     public static class IServiceCollectionExtensions
     {
-        public static IServiceCollection AddCertificateEncryption<T>(this IServiceCollection serviceCollection)
+        public static IServiceCollection AddCertificateEncryptionService<T>(this IServiceCollection serviceCollection)
         {
             serviceCollection.TryAddSingleton(typeof(ICertificateEncryptionService<>), typeof(CertificateEncryptionService<>));
 
