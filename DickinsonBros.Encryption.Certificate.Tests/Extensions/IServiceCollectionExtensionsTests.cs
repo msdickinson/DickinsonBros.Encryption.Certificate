@@ -23,8 +23,8 @@ namespace DickinsonBros.Encryption.Certificate.Tests.Extensions
 
             // Assert
 
-            Assert.IsTrue(serviceCollection.Any(serviceDefinition => serviceDefinition.ServiceType == typeof(ICertificateEncryption<>) &&
-                                           serviceDefinition.ImplementationType == typeof(CertificateEncryption<>) &&
+            Assert.IsTrue(serviceCollection.Any(serviceDefinition => serviceDefinition.ServiceType == typeof(ICertificateEncryptionService<>) &&
+                                           serviceDefinition.ImplementationType == typeof(CertificateEncryptionService<>) &&
                                            serviceDefinition.Lifetime == ServiceLifetime.Singleton));
         }
     }

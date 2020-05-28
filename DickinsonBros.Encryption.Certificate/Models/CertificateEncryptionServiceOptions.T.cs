@@ -3,9 +3,8 @@
 namespace DickinsonBros.Encryption.Certificate.Models
 {
     [ExcludeFromCodeCoverage]
-    public class CertificateEncryptionOptions<T> : CertificateEncryptionOptions
+    public class CertificateEncryptionServiceOptions<T> : CertificateEncryptionServiceOptions
     {
 
     }
-
 }

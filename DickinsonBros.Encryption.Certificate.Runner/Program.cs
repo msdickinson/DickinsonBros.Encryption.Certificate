@@ -30,13 +30,14 @@ namespace DickinsonBros.Encryption.Certificate.Runner
 
                 using (var provider = services.BuildServiceProvider())
                 {
-                    var certificateEncryption = provider.GetRequiredService<ICertificateEncryption<RunnerCertificateEncryptionOptions>>();
+                    var certificateEncryptionService = provider.GetRequiredService<ICertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>>();
 
-                    var encryptedString = certificateEncryption.Encrypt("Sample123!");
-                    var decryptedString = certificateEncryption.Decrypt(encryptedString);
+                    var encryptedByteArray = certificateEncryptionService.Encrypt("Sample123!");
+                    var encryptedString = Convert.ToBase64String(encryptedByteArray);
+                    var decryptedString = certificateEncryptionService.Decrypt(encryptedByteArray);
                     Console.WriteLine(
                 $@"Encrypted String
-{ Convert.ToBase64String(encryptedString) }
+{ encryptedString }
 
 Decrypted String
 { decryptedString }
@@ -69,9 +70,8 @@ Decrypted String
                 }
             });
             services.AddSingleton<IApplicationLifetime>(applicationLifetime);
-            services.AddCertificateEncryption<RunnerCertificateEncryptionOptions>();
-            services.Configure<CertificateEncryptionOptions<RunnerCertificateEncryptionOptions>>(_configuration.GetSection(nameof(RunnerCertificateEncryptionOptions)));
-
+            services.AddCertificateEncryption<RunnerCertificateEncryptionServiceOptions>();
+            services.Configure<CertificateEncryptionServiceOptions<RunnerCertificateEncryptionServiceOptions>>(_configuration.GetSection(nameof(RunnerCertificateEncryptionServiceOptions)));
         }
 
         IServiceCollection InitializeDependencyInjection()
