@@ -94,7 +94,7 @@ serviceCollection.AddOptions();
 services.Configure<CertificateEncryptionServiceOptions<RunnerCertificateEncryptionServiceOptions>>(_configuration.GetSection(nameof(RunnerCertificateEncryptionServiceOptions)));
 
 //Add Service
-services.AddCertificateEncryption<RunnerCertificateEncryptionServiceOptions>();
+services.AddCertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>();
 
 //Build Service Provider 
 using (var provider = services.BuildServiceProvider())
