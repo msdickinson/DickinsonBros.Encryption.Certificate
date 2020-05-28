@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <PackageReference Include="DickinsonBros.Encryption.Abstractions" Version="1.0.0" />
+    <PackageReference Include="DickinsonBros.Encryption.Certificate.Abstractions" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.4" />
   </ItemGroup>
 

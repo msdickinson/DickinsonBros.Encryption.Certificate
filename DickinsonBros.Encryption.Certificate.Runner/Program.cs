@@ -1,4 +1,5 @@
-﻿using DickinsonBros.Encryption.Certificate.Extensions;
+﻿using DickinsonBros.Encryption.Certificate.Abstractions;
+using DickinsonBros.Encryption.Certificate.Extensions;
 using DickinsonBros.Encryption.Certificate.Models;
 using DickinsonBros.Encryption.Certificate.Runner.Models;
 using DickinsonBros.Encryption.Certificate.Runner.Services;
