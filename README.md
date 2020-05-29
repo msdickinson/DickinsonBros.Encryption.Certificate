@@ -112,7 +112,7 @@ public class RunnerCertificateEncryptionServiceOptions : CertificateEncryptionSe
 var runnerCertificateEncryptionServiceOptions = new RunnerCertificateEncryptionServiceOptions
 {
     ThumbPrint = "...",
-    StoreLocation = "..."
+    StoreLocation = "LocalMachine"
 };
 var options = Options.Create(certificateEncryptionOptions);
 var certificateEncryptionService = new CertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>(options);
@@ -127,7 +127,7 @@ var certificateEncryptionService = new CertificateEncryptionService<RunnerCertif
 {
   "RunnerCertificateEncryptionServiceOptions": {
     "ThumbPrint": "...",
-    "StoreLocation": "..."
+    "StoreLocation": "LocalMachine"
   }
 }
  ```    
