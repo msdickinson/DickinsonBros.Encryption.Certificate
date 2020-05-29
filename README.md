@@ -43,8 +43,6 @@ Example Runner Included in folder "DickinsonBros.Encryption.Certificate.Runner"
 Below will show you have to install a cert with the private key and without.
 You can only decrypt if you have the cert with the private key.
 
-Note in all 3 powershell scripts you may decide to replace "DemoConfig" and the password "5cce8bf4-0cd7-4c22-9968-8793b9938db1" as these are just examples.
-
 <h4>Create powershell scripts</h3>
 
 <h5>CreateCert.ps1</h5>
