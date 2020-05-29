@@ -40,6 +40,59 @@ Example Runner Included in folder "DickinsonBros.Encryption.Certificate.Runner"
 
 <h3>Install a windows certificate</h3>
 
+Below will show you have to install a cert with the private key and without.
+You can only decrypt if you have the cert with the private key.
+
+Note in all 3 powershell scripts you may decide to replace "DemoConfig" and the password "5cce8bf4-0cd7-4c22-9968-8793b9938db1" as these are just examples.
+
+<h4>Create powershell scripts</h3>
+
+<h5>CreateCert.ps1</h5>
+    
+    $cert = New-SelfSignedCertificate -Type DocumentEncryptionCert -Subject "CN=DemoConfig" -KeyExportPolicy Exportable -KeySpec KeyExchange
+
+    Export-Certificate -Cert $cert -FilePath ".\DemoConfig.cer"
+
+    $mypwd = ConvertTo-SecureString -String "5cce8bf4-0cd7-4c22-9968-8793b9938db1" -Force -AsPlainText
+
+    Export-PfxCertificate -Cert $cert -FilePath ".\DemoConfig.pfx" -Password $mypwd
+
+    $cert
+
+<h5>ImportCert.ps1</h5>
+
+    Import-Certificate -FilePath ".\DemoConfig.cer" -CertStoreLocation Cert:\LocalMachine\My
+    
+<h5>ImportCertWithPrivateKey.ps1</h5>
+
+    $mypwd = ConvertTo-SecureString -String "5cce8bf4-0cd7-4c22-9968-8793b9938db1" -Force -AsPlainText
+
+    Import-PfxCertificate -FilePath ".\DemoConfig.pfx" -CertStoreLocation Cert:\LocalMachine\My -Password $mypwd
+    
+<h4>Run CreateCert.ps1</h3>
+
+Running this will generate two files
+
+    //Certificate
+    DemoConfig.cer
+    
+    //Certificate With Private Key
+    DemoConfig.pfx
+
+<h4>Run importCert.ps1 OR ImportCertWithPrivateKey.ps1</h3>
+
+This will install the Certificate and give you the ThumbPrint.
+
+To verfiy certificate is installed (and where you can remove it)
+* mmc.exe
+* File -> Add/Remove Snap In
+* Click Certificate and then Add
+* Select computer account and press next
+* Select local computer and press finsh
+* Select ok to close the 
+* Select the folder personal/Certificates
+* Look for your your cert in the example above it would be "DemoConfig"
+
 <h3>Add Nuget References</h3>
 
     https://www.nuget.org/packages/DickinsonBros.Encryption.Certificate/
