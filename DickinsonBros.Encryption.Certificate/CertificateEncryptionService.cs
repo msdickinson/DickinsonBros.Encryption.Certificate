@@ -57,7 +57,7 @@ namespace DickinsonBros.Encryption.Certificate
                 if (certificateCollection.Count > 0)
                 {
                     var certificate = certificateCollection[0];
-                    using RSA rsa = certificate.GetRSAPrivateKey();
+                    using RSA rsa = certificate.GetRSAPublicKey();
                     byte[] bytestodecrypt = Encoding.UTF8.GetBytes(rawString);
                     return rsa.Encrypt(bytestodecrypt, RSAEncryptionPadding.Pkcs1);
                 }
