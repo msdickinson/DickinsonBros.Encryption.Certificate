@@ -10,16 +10,14 @@ namespace DickinsonBros.Encryption.Certificate.Tests.Extensions
     [TestClass]
     public class IServiceCollectionExtensionsTests
     {
-        public class SampleCertificateEncryptionOptions  { }
-
         [TestMethod]
-        public void AddEncryptionService_Should_Succeed()
+        public void AddCertificateEncryptionService_Should_Succeed()
         {
             // Arrange
             var serviceCollection = new ServiceCollection();
 
             // Act
-            serviceCollection.AddCertificateEncryptionService<SampleCertificateEncryptionOptions>();
+            serviceCollection.AddCertificateEncryptionService<object>();
 
             // Assert
 

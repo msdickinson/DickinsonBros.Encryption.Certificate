@@ -13,6 +13,7 @@
       Features
       * Certificate based encryption
       * Configure certificate location
+      * Built with Generics allowing multiple configurations and instances concurrently.
     </Description>
   </PropertyGroup>
 
