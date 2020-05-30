@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Configurations>Debug;Release</Configurations>
-    <Version>3.0.0</Version>
+    <Version>4.0.0</Version>
     <Authors>Mark Dickinson</Authors>
     <Company>DickinsonBros</Company>
     <RepositoryUrl>https://github.com/msdickinson/DickinsonBros.Encryption.Certificate.git</RepositoryUrl>
