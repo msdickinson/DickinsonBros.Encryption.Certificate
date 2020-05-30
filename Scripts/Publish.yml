@@ -27,7 +27,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
-    projects: '**/*.csproj!**/*Runner.csproj'
+    projects: '**/DickinsonBros.Encryption.Certificate.csproj'
     configuration: '$(buildConfiguration)'
 
 - task: PublishBuildArtifacts@1
