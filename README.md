@@ -55,7 +55,7 @@ Example Runner Included in folder "DickinsonBros.Encryption.Certificate.Runner"
 <h3>Install a windows certificate</h3>
 
 Below will show you have to install a cert with the private key and without.
-You can only decrypt if you have the cert with the private key.
+You cant decrypt unless you install the cert with the private key.
 
 <h4>Create powershell scripts</h3>
 
