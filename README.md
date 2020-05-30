@@ -16,20 +16,34 @@ Features
 <h2>Example Usage</h2>
 
 ```C#
-var encryptedByteArray = certificateEncryptionService.Encrypt("Sample123!");
-var encryptedString = Convert.ToBase64String(encryptedByteArray);
-var decryptedString = certificateEncryptionService.Decrypt(encryptedByteArray);
+var encryptedString = certificateEncryptionService.Encrypt("Sample123!");
+var decryptedString = certificateEncryptionService.Decrypt(encryptedString);
+var encryptedByteArray = certificateEncryptionService.EncryptToByteArray("Sample123!");
+var decryptedStringFromByteArray = certificateEncryptionService.Decrypt(encryptedByteArray);
 Console.WriteLine(
 $@"Encrypted String
 { encryptedString }
 
-Decrypted String
+Decrypted string
 { decryptedString }
+
+Encrypted To ByteArray
+{  Encoding.UTF8.GetString(encryptedByteArray) }
+
+Decrypted String
+{ decryptedStringFromByteArray }
 ");
 ```
     
     Encrypted String
-    f4KFyOSqPAM8ju2q+521D3S2zGNuvsNks382GOlgL8C3VyaWVhCF4VS0bIyoQjK8KsoI7mQ8Uu8w54TkzCHuFGqXOmLJU0Rfjurjn+01VCxBsgo1G23u4QUtM5uXBSye/S/jcXGVLDJX90F7gss+NdKvbhebq6jFnFsR6ZhrTGc7BLbLiE0M/BE7A+8hxCGjOFXvgwBm8nTFhXh/sSV8fbZ9pCzwcPuSXMTKxRi+cji3jN42hJidmOBNKIXi2pq6hIL5kcDxKXuVxznOOOcwh/clfCa8Hx6rY/q1O4y14AT5IknCnvYXWCEroXfvX1vlemXewL/UCN486c6VzGssGA==
+    KUv+CZgM7KLO76qH7b9H5QKxI0tiB860FIKNIa7N1VfZXfIx4TIWp49AIyYUg4ZxBoeApqT28uU6X6iPSaoNUrJAX3MXR2f7IEb57aFCk2Kav09FC7Pmnih+tqj/zN/2aEmRxzKHhWCe7MSE1a2viSl3uaNn+6r32GZoAGKjHKzx+kElbWQWOnOXXe6O5cgcbTCMPmh+TMaGqt4fuCmTkiWEUc4zJxwXVYEwByJUnU3b1ClODzXYgc+g1QYVC5iAVRooexlkScTTDTXr/XNJqTau2STacBgJnO0zkiAastCwgu/Wuoz2J1FippDMEhoexd21bZTcdoYpj521xzhz8g==
+
+    Decrypted string
+    Sample123!
+
+    Encrypted To ByteArray
+    ???V???l?????D8σ??S? u?y?Sl???    vZeU?W??gZa?I?%??:?1?n?#GS$%?S1l???0?`?^??#Z????f??elZ?:?6?4w????1m}??.?l%?M?7'??>?v??d?r???Y?
+     }?!???n2D?????<???4I5?S????r??z?Y???i?y???O?????y?7??
 
     Decrypted String
     Sample123!
@@ -41,7 +55,7 @@ Example Runner Included in folder "DickinsonBros.Encryption.Certificate.Runner"
 <h3>Install a windows certificate</h3>
 
 Below will show you have to install a cert with the private key and without.
-You can only decrypt if you have the cert with the private key.
+You cant decrypt unless you install the cert with the private key.
 
 <h4>Create powershell scripts</h3>
 
