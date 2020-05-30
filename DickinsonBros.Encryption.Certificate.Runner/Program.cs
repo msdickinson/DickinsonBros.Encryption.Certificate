@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace DickinsonBros.Encryption.Certificate.Runner
@@ -32,15 +33,22 @@ namespace DickinsonBros.Encryption.Certificate.Runner
                 {
                     var certificateEncryptionService = provider.GetRequiredService<ICertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>>();
 
-                    var encryptedByteArray = certificateEncryptionService.Encrypt("Sample123!");
-                    var encryptedString = Convert.ToBase64String(encryptedByteArray);
-                    var decryptedString = certificateEncryptionService.Decrypt(encryptedByteArray);
+                    var encryptedString = certificateEncryptionService.Encrypt("Sample123!");
+                    var decryptedString = certificateEncryptionService.Decrypt(encryptedString);
+                    var encryptedByteArray = certificateEncryptionService.EncryptToByteArray("Sample123!");
+                    var decryptedStringFromByteArray = certificateEncryptionService.Decrypt(encryptedByteArray);
                     Console.WriteLine(
                 $@"Encrypted String
 { encryptedString }
 
-Decrypted String
+Decrypted string
 { decryptedString }
+
+Encrypted To ByteArray
+{  Encoding.UTF8.GetString(encryptedByteArray) }
+
+Decrypted String
+{ decryptedStringFromByteArray }
 ");
                 }
                 applicationLifetime.StopApplication();
