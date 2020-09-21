@@ -1,6 +1,5 @@
 ﻿using DickinsonBros.Encryption.Certificate.Abstractions;
 using DickinsonBros.Encryption.Certificate.Extensions;
-using DickinsonBros.Encryption.Certificate.Models;
 using DickinsonBros.Encryption.Certificate.Runner.Models;
 using DickinsonBros.Encryption.Certificate.Runner.Services;
 using Microsoft.AspNetCore.Hosting;
@@ -31,7 +30,7 @@ namespace DickinsonBros.Encryption.Certificate.Runner
 
                 using (var provider = services.BuildServiceProvider())
                 {
-                    var certificateEncryptionService = provider.GetRequiredService<ICertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>>();
+                    var certificateEncryptionService = provider.GetRequiredService<ICertificateEncryptionService<RunnerOptions>>();
 
                     var encryptedString = certificateEncryptionService.Encrypt("Sample123!");
                     var decryptedString = certificateEncryptionService.Decrypt(encryptedString);
@@ -78,8 +77,7 @@ Decrypted String
                 }
             });
             services.AddSingleton<IApplicationLifetime>(applicationLifetime);
-            services.AddCertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>();
-            services.Configure<CertificateEncryptionServiceOptions<RunnerCertificateEncryptionServiceOptions>>(_configuration.GetSection(nameof(RunnerCertificateEncryptionServiceOptions)));
+            services.AddCertificateEncryptionService<RunnerOptions>();
         }
 
         IServiceCollection InitializeDependencyInjection()
