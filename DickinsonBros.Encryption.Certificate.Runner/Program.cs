@@ -1,11 +1,10 @@
 ﻿using DickinsonBros.Encryption.Certificate.Abstractions;
 using DickinsonBros.Encryption.Certificate.Extensions;
-using DickinsonBros.Encryption.Certificate.Models;
 using DickinsonBros.Encryption.Certificate.Runner.Models;
 using DickinsonBros.Encryption.Certificate.Runner.Services;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
@@ -25,13 +24,13 @@ namespace DickinsonBros.Encryption.Certificate.Runner
         {
             try
             {
-                using var applicationLifetime = new ApplicationLifetime();
                 var services = InitializeDependencyInjection();
-                ConfigureServices(services, applicationLifetime);
+                ConfigureServices(services);
 
                 using (var provider = services.BuildServiceProvider())
                 {
                     var certificateEncryptionService = provider.GetRequiredService<ICertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>>();
+                    var hostApplicationLifetime = provider.GetService<IHostApplicationLifetime>();
 
                     var encryptedString = certificateEncryptionService.Encrypt("Sample123!");
                     var decryptedString = certificateEncryptionService.Decrypt(encryptedString);
@@ -50,8 +49,9 @@ Encrypted To ByteArray
 Decrypted String
 { decryptedStringFromByteArray }
 ");
+                    hostApplicationLifetime.StopApplication();
                 }
-                applicationLifetime.StopApplication();
+                
                 await Task.CompletedTask.ConfigureAwait(false);
             }
             catch (Exception e)
@@ -65,7 +65,7 @@ Decrypted String
             }
         }
 
-        private void ConfigureServices(IServiceCollection services, ApplicationLifetime applicationLifetime)
+        private void ConfigureServices(IServiceCollection services)
         {
             services.AddOptions();
             services.AddLogging(config =>
@@ -77,9 +77,9 @@ Decrypted String
                     config.AddConsole();
                 }
             });
-            services.AddSingleton<IApplicationLifetime>(applicationLifetime);
+            
+            services.AddSingleton<IHostApplicationLifetime, HostApplicationLifetime>();
             services.AddCertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>();
-            services.Configure<CertificateEncryptionServiceOptions<RunnerCertificateEncryptionServiceOptions>>(_configuration.GetSection(nameof(RunnerCertificateEncryptionServiceOptions)));
         }
 
         IServiceCollection InitializeDependencyInjection()
