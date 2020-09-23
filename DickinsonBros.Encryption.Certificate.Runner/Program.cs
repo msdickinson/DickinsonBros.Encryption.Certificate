@@ -29,15 +29,19 @@ namespace DickinsonBros.Encryption.Certificate.Runner
 
                 using (var provider = services.BuildServiceProvider())
                 {
+
+                    var configurationEncryptionService = provider.GetRequiredService<IConfigurationEncryptionService>();
                     var certificateEncryptionService = provider.GetRequiredService<ICertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>>();
                     var hostApplicationLifetime = provider.GetService<IHostApplicationLifetime>();
 
-                    var encryptedString = certificateEncryptionService.Encrypt("Sample123!");
-                    var decryptedString = certificateEncryptionService.Decrypt(encryptedString);
-                    var encryptedByteArray = certificateEncryptionService.EncryptToByteArray("Sample123!");
-                    var decryptedStringFromByteArray = certificateEncryptionService.Decrypt(encryptedByteArray);
-                    Console.WriteLine(
-                $@"Encrypted String
+                    {
+                        var encryptedString = certificateEncryptionService.Encrypt("Sample123!");
+                        var decryptedString = certificateEncryptionService.Decrypt(encryptedString);
+                        var encryptedByteArray = certificateEncryptionService.EncryptToByteArray("Sample123!");
+                        var decryptedStringFromByteArray = certificateEncryptionService.Decrypt(encryptedByteArray);
+                        Console.WriteLine(
+                    $@"CertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>
+Encrypted String
 { encryptedString }
 
 Decrypted string
@@ -49,6 +53,28 @@ Encrypted To ByteArray
 Decrypted String
 { decryptedStringFromByteArray }
 ");
+                    }
+
+                    {
+                        var encryptedString = configurationEncryptionService.Encrypt("Sample123!");
+                        var decryptedString = configurationEncryptionService.Decrypt(encryptedString);
+                        var encryptedByteArray = configurationEncryptionService.EncryptToByteArray("Sample123!");
+                        var decryptedStringFromByteArray = configurationEncryptionService.Decrypt(encryptedByteArray);
+                        Console.WriteLine(
+                $@"ConfigurationEncryptionService
+Encrypted String
+{ encryptedString }
+
+Decrypted string
+{ decryptedString }
+
+Encrypted To ByteArray
+{  Encoding.UTF8.GetString(encryptedByteArray) }
+
+Decrypted String
+{ decryptedStringFromByteArray }
+");
+                }
                     hostApplicationLifetime.StopApplication();
                 }
                 
@@ -79,6 +105,7 @@ Decrypted String
             });
             
             services.AddSingleton<IHostApplicationLifetime, HostApplicationLifetime>();
+            services.AddConfigurationEncryptionService();
             services.AddCertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>();
         }
 
