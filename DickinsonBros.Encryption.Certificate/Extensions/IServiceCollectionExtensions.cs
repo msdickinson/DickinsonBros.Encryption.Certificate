@@ -15,5 +15,12 @@ namespace DickinsonBros.Encryption.Certificate.Extensions
             serviceCollection.TryAddSingleton(typeof(IConfigureOptions<CertificateEncryptionServiceOptions<T>>), typeof(CertificateEncryptionServiceOptionsConfigurator<T>));
             return serviceCollection;
         }
+
+        public static IServiceCollection AddConfigurationEncryptionService(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.TryAddSingleton(typeof(IConfigurationEncryptionService), typeof(CertificateEncryptionService<Configuration>));
+            serviceCollection.TryAddSingleton(typeof(IConfigureOptions<CertificateEncryptionServiceOptions<Configuration>>), typeof(CertificateEncryptionServiceOptionsConfigurator<Configuration>));
+            return serviceCollection;
+        }
     }
 }

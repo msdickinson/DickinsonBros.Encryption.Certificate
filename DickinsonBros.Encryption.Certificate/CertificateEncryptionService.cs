@@ -10,7 +10,7 @@ using System.Text;
 namespace DickinsonBros.Encryption.Certificate
 {
     [ExcludeFromCodeCoverage]
-    public class CertificateEncryptionService<T> : ICertificateEncryptionService<T>
+    public class CertificateEncryptionService<T> : ICertificateEncryptionService<T>, IConfigurationEncryptionService
     {
         internal readonly string _thumbPrint;
         internal readonly StoreLocation _storeLocation;
