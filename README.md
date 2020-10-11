@@ -1,8 +1,14 @@
 # DickinsonBros.Encryption.Certificate
 
-<a href="https://www.nuget.org/packages/DickinsonBros.Encryption.Certificate/">
+<a href="https://dev.azure.com/marksamdickinson/dickinsonbros/_build/latest?definitionId=45&amp;branchName=master">
+    <img alt="Azure DevOps builds (branch)" src="https://img.shields.io/azure-devops/build/marksamdickinson/DickinsonBros/57/master">
+</a> <a href="https://dev.azure.com/marksamdickinson/dickinsonbros/_build/latest?definitionId=45&amp;branchName=master">
+    <img alt="Azure DevOps coverage (branch)" src="https://img.shields.io/azure-devops/coverage/marksamdickinson/dickinsonbros/45/master">
+</a> <a href="https://dev.azure.com/marksamdickinson/DickinsonBros/_release?_a=releases&view=mine&definitionId=21">
+    <img alt="Azure DevOps releases" src="https://img.shields.io/azure-devops/release/marksamdickinson/b5a46403-83bb-4d18-987f-81b0483ef43e/21/22">
+</a> <a href="https://www.nuget.org/packages/DickinsonBros.Encryption.Certificate/">
     <img src="https://img.shields.io/nuget/v/DickinsonBros.Encryption.Certificate">
-</a>
+</a> 
 
 Encrypt and decrypt strings with certificates
 
@@ -10,8 +16,6 @@ Features
 * Certificate based encryption 
 * Configure certificate location
 * Built with Generics allowing multiple configurations and instances concurrently.
-
-<a href="https://dev.azure.com/marksamdickinson/DickinsonBros/_build?definitionScope=%5CDickinsonBros.Encryption.Certificate">Builds</a>
 
 <h2>Example Usage</h2>
 
@@ -50,9 +54,10 @@ Decrypted String
 
 Example Runner Included in folder "DickinsonBros.Encryption.Certificate.Runner"
 
-<h2>Setup</h2>
+<h2>Interface Dependencies</h3>
+None
 
-<h3>Install a windows certificate</h3>
+<h2>Install a windows certificate</h3>
 
 Below will show you have to install a cert with the private key and without.
 You can only decrypt if you have the cert with the private key.
@@ -104,66 +109,3 @@ To verfiy certificate is installed (and where you can remove it)
 * Select ok to close the 
 * Select the folder personal/Certificates
 * Look for your your cert in the example above it would be "DemoConfig"
-
-<h3>Add Nuget References</h3>
-
-    https://www.nuget.org/packages/DickinsonBros.Encryption.Certificate/
-    https://www.nuget.org/packages/DickinsonBros.Encryption.Certificate.Abstractions
-
-<h3>Create class with base of CertificateEncryptionServiceOptions</h3>
-
-```c#
-public class RunnerCertificateEncryptionServiceOptions : CertificateEncryptionServiceOptions
-{
-
-};
-```
-<h3>Create Instance</h3>
-
-```c#
-var runnerCertificateEncryptionServiceOptions = new RunnerCertificateEncryptionServiceOptions
-{
-    ThumbPrint = "...",
-    StoreLocation = "LocalMachine"
-};
-var options = Options.Create(certificateEncryptionOptions);
-var certificateEncryptionService = new CertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>(options);
-
-```
-
-<h3>Create Instance (With Dependency Injection)</h3>
-
-<h4>Add appsettings.json File With Contents</h4>
-
- ```json  
-{
-  "RunnerCertificateEncryptionServiceOptions": {
-    "ThumbPrint": "...",
-    "StoreLocation": "LocalMachine"
-  }
-}
- ```    
-<h4>Code</h4>
-
-```c#
-
-var serviceCollection = new ServiceCollection();
-
-//Configure Options
-var builder = new ConfigurationBuilder()
-    .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json", false)
-
-var configuration = builder.Build();
-serviceCollection.AddOptions();
-services.Configure<CertificateEncryptionServiceOptions<RunnerCertificateEncryptionServiceOptions>>(_configuration.GetSection(nameof(RunnerCertificateEncryptionServiceOptions)));
-
-//Add Service
-services.AddCertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>();
-
-//Build Service Provider 
-using (var provider = services.BuildServiceProvider())
-{
-  var certificateEncryptionService = provider.GetRequiredService<ICertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>>();
-}
-```
