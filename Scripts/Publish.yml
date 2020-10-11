@@ -34,9 +34,9 @@ steps:
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
-	  **\*Tests*.dll
-	  !**\*TestAdapter.dll
-	  !**\obj\**
+      **\*Tests*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
     codeCoverageEnabled: true
     runSettingsFile: 'DickinsonBros.Encryption.Certificate.runsettings'
