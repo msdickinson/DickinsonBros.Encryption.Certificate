@@ -17,8 +17,6 @@ Features
 * Configure certificate location
 * Built with Generics allowing multiple configurations and instances concurrently.
 
-<a href="https://dev.azure.com/marksamdickinson/DickinsonBros/_build?definitionScope=%5CDickinsonBros.Encryption.Certificate">Builds</a>
-
 <h2>Example Usage</h2>
 
 ```C#
@@ -57,7 +55,7 @@ Decrypted String
 Example Runner Included in folder "DickinsonBros.Encryption.Certificate.Runner"
 
 <h2>Interface Dependencies</h3>
-- None
+None
 
 <h2>Install a windows certificate</h3>
 
