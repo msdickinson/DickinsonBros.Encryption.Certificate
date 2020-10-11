@@ -1,8 +1,8 @@
 # DickinsonBros.Encryption.Certificate
 
-<a href="https://img.shields.io/azure-devops/build/marksamdickinson/DickinsonBros/57/master">
+<a href="https://dev.azure.com/marksamdickinson/dickinsonbros/_build/latest?definitionId=45&amp;branchName=master">
     <img alt="Azure DevOps builds (branch)" src="https://img.shields.io/azure-devops/build/marksamdickinson/DickinsonBros/57/master">
-</a> <a href="https://img.shields.io/azure-devops/build/marksamdickinson/DickinsonBros/57/master">
+</a> <a href="https://dev.azure.com/marksamdickinson/dickinsonbros/_build/latest?definitionId=45&amp;branchName=master">
     <img alt="Azure DevOps coverage (branch)" src="https://img.shields.io/azure-devops/coverage/marksamdickinson/dickinsonbros/45/master">
 </a> <a href="https://www.nuget.org/packages/DickinsonBros.Encryption.Certificate/">
     <img src="https://img.shields.io/nuget/v/DickinsonBros.Encryption.Certificate">
