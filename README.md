@@ -47,9 +47,6 @@ Decrypted String
 
 Example Runner Included in folder "DickinsonBros.Encryption.Certificate.Runner"
 
-<h2>Interface Dependencies</h3>
-None
-
 <h2>Install a windows certificate</h3>
 
 Below will show you have to install a cert with the private key and without.
