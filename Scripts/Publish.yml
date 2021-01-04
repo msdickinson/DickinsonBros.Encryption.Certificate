@@ -24,6 +24,12 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: NuGetCommand@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/Source/*/*.csproj'
+    packDestination: '$(Build.ArtifactStagingDirectory)'
+    versioningScheme: 'off'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet pack'
