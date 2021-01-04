@@ -41,10 +41,11 @@ steps:
     codeCoverageEnabled: true
     runSettingsFile: 'Scripts/DickinsonBros.Encryption.Certificate.runsettings'
 
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
-    projects: '**/Source/*.csproj'
+    packagesToPack: '**/Source/*.csproj'
     configuration: '$(buildConfiguration)'
 
 - task: PublishBuildArtifacts@1
