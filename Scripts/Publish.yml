@@ -29,7 +29,7 @@ steps:
   displayName: 'dotnet pack'
   inputs:
     command: 'pack'    
-    packagesToPack: '**/DickinsonBros.Encryption.Certificate.csproj'
+    packagesToPack: '**/Source/*/*.csproj'
     configuration: '$(buildConfiguration)'
     arguments: '--framework netcoreapp3.1'
 
