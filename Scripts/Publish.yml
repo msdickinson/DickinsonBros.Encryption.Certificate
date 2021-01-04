@@ -45,7 +45,8 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
-    projects: '**/Source/DickinsonBros.Encryption.Certificate.csproj' 
+    projects: '**/Source/DickinsonBros.Encryption.Certificate.csproj'
+    packagesToPack: '**/Source/DickinsonBros.Encryption.Certificate.csproj' 
     configuration: '$(buildConfiguration)'
 
 - task: PublishBuildArtifacts@1
