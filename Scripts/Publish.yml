@@ -45,6 +45,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
+    projects: '**/Source/*' 
     packagesToPack: '**/Source/*.csproj'
     configuration: '$(buildConfiguration)'
 
