@@ -30,22 +30,9 @@ steps:
     projects: '**/*.csproj'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*Tests*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    codeCoverageEnabled: true
-    runSettingsFile: 'Scripts/DickinsonBros.Encryption.Certificate.runsettings'
-
-
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'    
-    projects: '**/*.csproj'
     packagesToPack: '**/DickinsonBros.Encryption.Certificate.csproj' 
     configuration: '$(buildConfiguration)'
 
