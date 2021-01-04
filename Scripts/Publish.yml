@@ -26,7 +26,7 @@ steps:
 
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'build'
+    command: 'restore'
     projects: '**/*.csproj'
     configuration: '$(buildConfiguration)'
 
@@ -34,7 +34,8 @@ steps:
   inputs:
     command: 'pack'    
     projects: '**/*.csproj'
-    configuration: '$(buildConfiguration)'
+    configuration: '$(buildConfiguration)
+    'arguments: '--configuration $(BuildConfiguration) --framework netcoreapp3.1'
 
 - task: PublishBuildArtifacts@1
   inputs:
