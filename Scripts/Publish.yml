@@ -35,7 +35,7 @@ steps:
   displayName: 'dotnet pack'
   inputs:
     command: 'pack'    
-    projects: '**/Source/.csproj'
+    projects: '**/Source/*.csproj'
     configuration: '$(buildConfiguration)'
     arguments: '--framework netcoreapp3.1'
 
