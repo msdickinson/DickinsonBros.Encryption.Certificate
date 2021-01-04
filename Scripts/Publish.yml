@@ -33,7 +33,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'    
-    projects: '**/*.csproj'
+    projects: '**/Source/.csproj'
     configuration: '$(buildConfiguration)'
     arguments: '--framework netcoreapp2.1'
 
