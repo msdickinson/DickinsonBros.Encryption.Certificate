@@ -45,7 +45,7 @@ Decrypted String
     Decrypted String
     Sample123!
 
-[Sample Runner](https://github.com/msdickinson/DickinsonBros.Encryption.Certificate/tree/master/DickinsonBros.Encryption.Certificate.Runner)
+[Sample Runner](https://github.com/msdickinson/DickinsonBros.Encryption.Certificate/tree/master/Runner/DickinsonBros.Encryption.Certificate.Runner)
 <h2>Install a windows certificate</h3>
 
 Below will show you have to install a cert with the private key and without.
