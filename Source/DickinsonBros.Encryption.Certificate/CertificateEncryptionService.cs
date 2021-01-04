@@ -11,6 +11,7 @@ namespace DickinsonBros.Encryption.Certificate
 {
     [ExcludeFromCodeCoverage]
     public class CertificateEncryptionService<T> : ICertificateEncryptionService<T>, IConfigurationEncryptionService
+    where T : CertificateEncryptionServiceOptionsType
     {
         internal readonly string _thumbPrint;
         internal readonly StoreLocation _storeLocation;

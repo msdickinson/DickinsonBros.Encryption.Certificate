@@ -3,23 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DickinsonBros.Encryption.Certificate", "DickinsonBros.Encryption.Certificate\DickinsonBros.Encryption.Certificate.csproj", "{51BD9926-99A3-4465-AC57-099233DB00D8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Source", "1 Source", "{615FED22-923D-4D4F-80C7-D9EB01C87D94}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Library", "1 Library", "{615FED22-923D-4D4F-80C7-D9EB01C87D94}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Runner", "3 Runner", "{6B7E2BFE-3905-4456-ACC2-DFFD05BF7D66}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Runner", "2 Runner", "{6B7E2BFE-3905-4456-ACC2-DFFD05BF7D66}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9 Misc", "9 Misc", "{715E582A-B713-48E9-8CD9-29CA3C9512B6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9 Scripts", "9 Scripts", "{715E582A-B713-48E9-8CD9-29CA3C9512B6}"
 	ProjectSection(SolutionItems) = preProject
 		Scripts\CreateNugetPackageCI.ps1 = Scripts\CreateNugetPackageCI.ps1
-		DickinsonBros.Encryption.Certificate.runsettings = DickinsonBros.Encryption.Certificate.runsettings
+		Scripts\DickinsonBros.Encryption.Certificate.runsettings = Scripts\DickinsonBros.Encryption.Certificate.runsettings
 		Scripts\Publish.yml = Scripts\Publish.yml
 		Scripts\Test.yml = Scripts\Test.yml
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DickinsonBros.Encryption.Certificate.Tests", "DickinsonBros.Encryption.Certificate.Tests\DickinsonBros.Encryption.Certificate.Tests.csproj", "{6ACF69D3-0B0E-4A45-BA76-11DFAC8CF88F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Tests", "2 Tests", "{603A6924-5226-4946-BF55-CA9CDFD0994D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DickinsonBros.Encryption.Certificate.Runner", "DickinsonBros.Encryption.Certificate.Runner\DickinsonBros.Encryption.Certificate.Runner.csproj", "{C6270F14-9886-4396-9469-9B4D3B300665}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DickinsonBros.Encryption.Certificate", "Source\DickinsonBros.Encryption.Certificate\DickinsonBros.Encryption.Certificate.csproj", "{50992A04-8F69-4BF5-B21E-B4973D0C8499}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DickinsonBros.Encryption.Certificate.Tests", "Tests\DickinsonBros.Encryption.Certificate.Tests\DickinsonBros.Encryption.Certificate.Tests.csproj", "{5CEAD184-F43B-473A-B9AC-361620128052}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DickinsonBros.Encryption.Certificate.Runner", "Runner\DickinsonBros.Encryption.Certificate.Runner\DickinsonBros.Encryption.Certificate.Runner.csproj", "{02C91BB2-03CA-4354-9FC3-74E4D1335FC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,26 +29,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{51BD9926-99A3-4465-AC57-099233DB00D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51BD9926-99A3-4465-AC57-099233DB00D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51BD9926-99A3-4465-AC57-099233DB00D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51BD9926-99A3-4465-AC57-099233DB00D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6ACF69D3-0B0E-4A45-BA76-11DFAC8CF88F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6ACF69D3-0B0E-4A45-BA76-11DFAC8CF88F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6ACF69D3-0B0E-4A45-BA76-11DFAC8CF88F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6ACF69D3-0B0E-4A45-BA76-11DFAC8CF88F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C6270F14-9886-4396-9469-9B4D3B300665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C6270F14-9886-4396-9469-9B4D3B300665}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C6270F14-9886-4396-9469-9B4D3B300665}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C6270F14-9886-4396-9469-9B4D3B300665}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50992A04-8F69-4BF5-B21E-B4973D0C8499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50992A04-8F69-4BF5-B21E-B4973D0C8499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50992A04-8F69-4BF5-B21E-B4973D0C8499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50992A04-8F69-4BF5-B21E-B4973D0C8499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CEAD184-F43B-473A-B9AC-361620128052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CEAD184-F43B-473A-B9AC-361620128052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CEAD184-F43B-473A-B9AC-361620128052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CEAD184-F43B-473A-B9AC-361620128052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02C91BB2-03CA-4354-9FC3-74E4D1335FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C91BB2-03CA-4354-9FC3-74E4D1335FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C91BB2-03CA-4354-9FC3-74E4D1335FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C91BB2-03CA-4354-9FC3-74E4D1335FC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{51BD9926-99A3-4465-AC57-099233DB00D8} = {615FED22-923D-4D4F-80C7-D9EB01C87D94}
-		{6ACF69D3-0B0E-4A45-BA76-11DFAC8CF88F} = {615FED22-923D-4D4F-80C7-D9EB01C87D94}
-		{C6270F14-9886-4396-9469-9B4D3B300665} = {6B7E2BFE-3905-4456-ACC2-DFFD05BF7D66}
+		{50992A04-8F69-4BF5-B21E-B4973D0C8499} = {615FED22-923D-4D4F-80C7-D9EB01C87D94}
+		{5CEAD184-F43B-473A-B9AC-361620128052} = {603A6924-5226-4946-BF55-CA9CDFD0994D}
+		{02C91BB2-03CA-4354-9FC3-74E4D1335FC0} = {6B7E2BFE-3905-4456-ACC2-DFFD05BF7D66}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EA3B5239-D329-4D10-BA73-E896B4465A71}

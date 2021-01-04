@@ -13,10 +13,7 @@ namespace DickinsonBros.Redactor.Tests.Configurator
     [TestClass]
     public class CertificateEncryptionServiceOptionsConfiguratorTests : BaseTest
     {
-        public class TestClass
-        {
-
-        }
+        public class TestClass : CertificateEncryptionServiceOptionsType { }
 
         [TestMethod]
         public async Task Configure_Runs_DecryptCalled()

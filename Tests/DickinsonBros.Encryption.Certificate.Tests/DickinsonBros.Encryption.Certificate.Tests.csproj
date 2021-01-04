@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DickinsonBros.Encryption.Certificate\DickinsonBros.Encryption.Certificate.csproj" />
+    <ProjectReference Include="..\..\Source\DickinsonBros.Encryption.Certificate\DickinsonBros.Encryption.Certificate.csproj" />
   </ItemGroup>
 
 </Project>

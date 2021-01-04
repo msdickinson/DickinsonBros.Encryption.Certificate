@@ -29,10 +29,16 @@ namespace DickinsonBros.Encryption.Certificate.Runner
 
                 using (var provider = services.BuildServiceProvider())
                 {
-
                     var configurationEncryptionService = provider.GetRequiredService<IConfigurationEncryptionService>();
-                    var certificateEncryptionService = provider.GetRequiredService<ICertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>>();
+                    var certificateEncryptionService = provider.GetRequiredService<ICertificateEncryptionService<Standard>>();
                     var hostApplicationLifetime = provider.GetService<IHostApplicationLifetime>();
+
+                    hostApplicationLifetime.ApplicationStopped.Register(() =>
+                    {
+                        Console.WriteLine("ApplicationStopped Start");
+                        Task.Delay(TimeSpan.FromDays(1)).Wait();
+                        Console.WriteLine("ApplicationStopped End");
+                    });
 
                     {
                         var encryptedString = certificateEncryptionService.Encrypt("Sample123!");
@@ -40,7 +46,7 @@ namespace DickinsonBros.Encryption.Certificate.Runner
                         var encryptedByteArray = certificateEncryptionService.EncryptToByteArray("Sample123!");
                         var decryptedStringFromByteArray = certificateEncryptionService.Decrypt(encryptedByteArray);
                         Console.WriteLine(
-                    $@"CertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>
+$@"CertificateEncryptionService<Develop>
 Encrypted String
 { encryptedString }
 
@@ -61,7 +67,7 @@ Decrypted String
                         var encryptedByteArray = configurationEncryptionService.EncryptToByteArray("Sample123!");
                         var decryptedStringFromByteArray = configurationEncryptionService.Decrypt(encryptedByteArray);
                         Console.WriteLine(
-                $@"ConfigurationEncryptionService
+$@"ConfigurationEncryptionService
 Encrypted String
 { encryptedString }
 
@@ -74,10 +80,8 @@ Encrypted To ByteArray
 Decrypted String
 { decryptedStringFromByteArray }
 ");
+                    }
                 }
-                    hostApplicationLifetime.StopApplication();
-                }
-                
                 await Task.CompletedTask.ConfigureAwait(false);
             }
             catch (Exception e)
@@ -106,7 +110,7 @@ Decrypted String
             
             services.AddSingleton<IHostApplicationLifetime, HostApplicationLifetime>();
             services.AddConfigurationEncryptionService();
-            services.AddCertificateEncryptionService<RunnerCertificateEncryptionServiceOptions>();
+            services.AddCertificateEncryptionService<Standard>();
         }
 
         IServiceCollection InitializeDependencyInjection()
