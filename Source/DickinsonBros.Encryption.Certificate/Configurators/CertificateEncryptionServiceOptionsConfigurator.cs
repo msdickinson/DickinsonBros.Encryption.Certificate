@@ -5,6 +5,7 @@ using Microsoft.Extensions.Options;
 namespace DickinsonBros.Encryption.Certificate.Configurators
 {
     public class CertificateEncryptionServiceOptionsConfigurator<T> : IConfigureOptions<CertificateEncryptionServiceOptions<T>>
+    where T : CertificateEncryptionServiceOptionsType
     {
         private readonly IServiceScopeFactory _serviceScopeFactory;
         public CertificateEncryptionServiceOptionsConfigurator(IServiceScopeFactory serviceScopeFactory)

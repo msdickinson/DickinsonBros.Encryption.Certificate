@@ -11,6 +11,7 @@ namespace DickinsonBros.Encryption.Certificate.Runner.Services
         internal readonly CancellationTokenSource _ctsStopping = new CancellationTokenSource();
         public HostApplicationLifetime()
         {
+
         }
         public void Started()
         {

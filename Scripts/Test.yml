@@ -26,4 +26,4 @@ steps:
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'     
     codeCoverageEnabled: true
-    runSettingsFile: 'DickinsonBros.Encryption.Certificate.runsettings'
+    runSettingsFile: 'Scripts/DickinsonBros.Encryption.Certificate.runsettings'

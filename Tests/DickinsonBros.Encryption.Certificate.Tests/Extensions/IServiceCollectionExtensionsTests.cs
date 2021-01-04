@@ -12,7 +12,7 @@ namespace DickinsonBros.Encryption.Certificate.Tests.Extensions
     [TestClass]
     public class IServiceCollectionExtensionsTests
     {
-        public class Sample { };
+        public class Sample : CertificateEncryptionServiceOptionsType { };
 
         [TestMethod]
         public void AddCertificateEncryptionService_Should_Succeed()

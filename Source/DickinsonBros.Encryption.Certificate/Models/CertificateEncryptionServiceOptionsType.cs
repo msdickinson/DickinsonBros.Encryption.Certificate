@@ -3,7 +3,7 @@
 namespace DickinsonBros.Encryption.Certificate.Models
 {
     [ExcludeFromCodeCoverage]
-    public class Configuration : CertificateEncryptionServiceOptions
+    public abstract class CertificateEncryptionServiceOptionsType
     {
     }
 }
