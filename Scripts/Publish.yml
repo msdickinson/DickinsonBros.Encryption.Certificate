@@ -35,6 +35,8 @@ steps:
     command: 'pack'    
     packagesToPack: '**/Source/*/*.csproj'
     configuration: '$(buildConfiguration)'
+    projects: '**/Source/*/*.csproj'
+    modifyOutputPath: true
 
 - task: PublishBuildArtifacts@1
   inputs:
