@@ -36,8 +36,7 @@ steps:
   inputs:
     command: 'pack'    
     packagesToPack: '**/Source/*/*.csproj'
-    configuration: '$(buildConfiguration)'
-    arguments: '--framework netcoreapp2.1'
+    arguments: '--configuration $(BuildConfiguration) --framework netcoreapp3.1'
 
 - task: PublishBuildArtifacts@1
   inputs:
