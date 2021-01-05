@@ -32,7 +32,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    packagesToPack: '**/Source/*/*.csproj'
+    projects: '**/Source/*/*.csproj'
     configuration: '$(buildConfiguration)'
 
 
