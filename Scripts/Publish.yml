@@ -19,11 +19,13 @@ variables:
 
 steps:
 - task: UseDotNet@2
+  displayName: Install .Net SDK 3.1.x
   inputs:
     packageType: 'sdk'
     version: '3.1.x'
 
 - task: DotNetCoreCLI@2
+  displayName: Build Source Release
   inputs:
     command: 'build'
     projects: '**/Source/*/*.csproj'
