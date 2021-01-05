@@ -50,4 +50,4 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/Source/*/*.csproj'
-    configuration: '--configuration $(buildConfiguration)'
+    arguments: '--configuration $(buildConfiguration)'
