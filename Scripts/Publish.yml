@@ -46,14 +46,11 @@ steps:
     runSettingsFile: 'Scripts/DickinsonBros.Encryption.Certificate.runsettings'
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet publish'
   inputs:
-    command: 'publish'
-    publishWebProjects: false
+    command: 'pack'
     projects: '**/Source/*/*.csproj'
-    arguments: '--configuration $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)/Output'
-    zipAfterPublish: true
-    modifyOutputPath: true
+    packDirectory: '$(Build.ArtifactStagingDirectory)'
+    arguments: '--configuration $(buildConfiguration)'
     
 - task: PublishBuildArtifacts@1
   inputs:
