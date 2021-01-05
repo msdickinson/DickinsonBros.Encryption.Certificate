@@ -28,19 +28,12 @@ steps:
   inputs:
     packageType: 'sdk'
     version: '3.1.x'
+    includePreviewVersions: 
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet pack'
   inputs:
-    command: 'pack'    
+    command: 'build'
     packagesToPack: '**/Source/*/*.csproj'
     configuration: '$(buildConfiguration)'
-    projects: '**/Source/*/*.csproj'
-    modifyOutputPath: true
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
 
