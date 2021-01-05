@@ -12,10 +12,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  NugetFeed: 'https://api.nuget.org/v3/index.json'
 
 steps:
 - task: UseDotNet@2
