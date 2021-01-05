@@ -27,7 +27,7 @@ steps:
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
-    version: '3.x.x'
+    version: '5.0.101'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet pack'
