@@ -9,13 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Runner", "3 Runner", "{6B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9 Scripts", "9 Scripts", "{715E582A-B713-48E9-8CD9-29CA3C9512B6}"
 	ProjectSection(SolutionItems) = preProject
-		Scripts\CreateNugetPackageCI.ps1 = Scripts\CreateNugetPackageCI.ps1
-		Scripts\DickinsonBros.Encryption.Certificate.runsettings = Scripts\DickinsonBros.Encryption.Certificate.runsettings
+		Scripts\Prerelease.DickinsonBros.Encryption.Certificate.ps1 = Scripts\Prerelease.DickinsonBros.Encryption.Certificate.ps1
 		Scripts\Publish.yml = Scripts\Publish.yml
 		Scripts\Test.yml = Scripts\Test.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Tests", "2 Tests", "{603A6924-5226-4946-BF55-CA9CDFD0994D}"
+	ProjectSection(SolutionItems) = preProject
+		Scripts\DickinsonBros.Encryption.Certificate.runsettings = Scripts\DickinsonBros.Encryption.Certificate.runsettings
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DickinsonBros.Encryption.Certificate", "Source\DickinsonBros.Encryption.Certificate\DickinsonBros.Encryption.Certificate.csproj", "{50992A04-8F69-4BF5-B21E-B4973D0C8499}"
 EndProject

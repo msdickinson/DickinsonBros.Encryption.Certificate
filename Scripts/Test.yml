@@ -12,18 +12,29 @@ variables:
   buildConfiguration: 'Debug'
 
 steps:
+- task: UseDotNet@2
+  displayName: Install .Net SDK 3.1.x
+  inputs:
+    packageType: 'sdk'
+    version: '3.1.x'
+    
 - task: DotNetCoreCLI@2
+  displayName: Build Source And Tests - Release
   inputs:
     command: 'build'
-    projects: '**/*.csproj'
-    configuration: '$(buildConfiguration)'
+    arguments: '--configuration $(buildConfiguration)'
+    projects: |
+     **/Source/*/*.csproj
+     **/Tests/*/*.csproj
+
 - task: VSTest@2
+  displayName: Run Unit Tests
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
       **\*Tests*.dll
       !**\*TestAdapter.dll
       !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'     
+    searchFolder: '$(System.DefaultWorkingDirectory)'
     codeCoverageEnabled: true
-    runSettingsFile: 'Scripts/DickinsonBros.Encryption.Certificate.runsettings'
+    runSettingsFile: '$(runSettingsFile)'
