@@ -28,6 +28,7 @@ steps:
   displayName: Build Source And Tests - Release
   inputs:
     command: 'build'
-    projects: '**/Source/*/*.csproj;**/Tests/*/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
-
+    projects: |
+     **/Source/*/*.csproj
+     **/Tests/*/*.csproj
