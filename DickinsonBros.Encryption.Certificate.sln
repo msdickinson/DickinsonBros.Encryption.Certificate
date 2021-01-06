@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Source", "1 Source", "{61
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Runner", "3 Runner", "{6B7E2BFE-3905-4456-ACC2-DFFD05BF7D66}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9 Scripts", "9 Scripts", "{715E582A-B713-48E9-8CD9-29CA3C9512B6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Scripts", "4 Scripts", "{715E582A-B713-48E9-8CD9-29CA3C9512B6}"
 	ProjectSection(SolutionItems) = preProject
 		Scripts\Prerelease.DickinsonBros.Encryption.Certificate.ps1 = Scripts\Prerelease.DickinsonBros.Encryption.Certificate.ps1
 		Scripts\Publish.yml = Scripts\Publish.yml
