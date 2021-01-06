@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Scripts", "4 Scripts", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Tests", "2 Tests", "{603A6924-5226-4946-BF55-CA9CDFD0994D}"
 	ProjectSection(SolutionItems) = preProject
-		Scripts\DickinsonBros.Encryption.Certificate.runsettings = Scripts\DickinsonBros.Encryption.Certificate.runsettings
+		Tests\DickinsonBros.Encryption.Certificate.runsettings = Tests\DickinsonBros.Encryption.Certificate.runsettings
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DickinsonBros.Encryption.Certificate", "Source\DickinsonBros.Encryption.Certificate\DickinsonBros.Encryption.Certificate.csproj", "{50992A04-8F69-4BF5-B21E-B4973D0C8499}"
