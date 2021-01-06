@@ -3,10 +3,8 @@ trigger:
          include:
          - master
     paths:
-          exclude:
-          - README.md
-          - Scripts/*
-          - Tests/*
+        include:
+        - Source/*
 pr: none
 
 pool:
